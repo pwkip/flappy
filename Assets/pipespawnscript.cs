@@ -6,6 +6,13 @@ public class pipespawnscript : MonoBehaviour
 {
 
     public GameObject pipe;
+
+    public int numberOfPipes = 5;
+
+    private int numberOfPipesSpawned = 0;
+    private bool targetSpawned = false;
+
+    public GameObject target;
     public float spawnRate = 1;
     private float timer = 0;
 
@@ -19,7 +26,7 @@ public class pipespawnscript : MonoBehaviour
     {
         lowestPoint = -heightOffset;
         highestPoint = heightOffset;
-        PawnPipe();
+        SpawnPipeOrTarget();
     }
 
     // Update is called once per frame
@@ -30,11 +37,26 @@ public class pipespawnscript : MonoBehaviour
             timer += Time.deltaTime;
         } else {
             timer = 0;
-            PawnPipe();
+            SpawnPipeOrTarget();
         }
     }
 
-    void PawnPipe() {
+    void SpawnPipeOrTarget() {
+
+        if (targetSpawned)
+        {
+            return;
+        }
+
+        numberOfPipesSpawned++;
+
+        if (numberOfPipesSpawned > numberOfPipes)
+        {
+            Instantiate(target, transform.position, transform.rotation);
+            targetSpawned = true;
+            return;
+        }
+
         Vector3 spawnPoint = new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z);
         Instantiate(pipe, spawnPoint, transform.rotation);
     }

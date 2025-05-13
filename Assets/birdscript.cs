@@ -10,6 +10,8 @@ public class birdscript : MonoBehaviour
     public float flapStrength;
     public uiscript uiScript;
 
+    public bool isJumping = false;
+
     InputAction jumpAction;
 
     public bool birdIsAlive = true;
@@ -27,11 +29,15 @@ public class birdscript : MonoBehaviour
     void Update()
     {
 
-        if (jumpAction.IsPressed() && birdIsAlive)
+        if (!birdIsAlive)
+        {
+            return;
+        }
+
+        if (jumpAction.WasPressedThisFrame())
         {
             Jump();
         }
-
     }
 
     private void Jump()

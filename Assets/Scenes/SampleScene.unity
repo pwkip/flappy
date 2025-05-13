@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -279,6 +280,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d94610de1fc64b06ae25c9469e77813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &658124685
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,10 +324,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 749785552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -736, y: 440}
-  m_SizeDelta: {x: 356.74, y: 135.1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 238, y: -152}
+  m_SizeDelta: {x: 356.74, y: 135.09998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658124687
 MonoBehaviour:
@@ -538,6 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipe: {fileID: 929614251784472239, guid: 6b114888e20da4ffd8f5429330c5cd02, type: 3}
+  numberOfPipes: 5
+  target: {fileID: 6850985371895944306, guid: c22219a4dc1464f88b615c15ad7012c0, type: 3}
   spawnRate: 0.5
   heightOffset: 1
 --- !u!4 &1184735810
@@ -549,7 +564,7 @@ Transform:
   m_GameObject: {fileID: 1184735808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.41, y: -1.38, z: -0.02344428}
+  m_LocalPosition: {x: 35, y: -1.38, z: -0.02344428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -978,6 +993,7 @@ MonoBehaviour:
   myRigidbody2D: {fileID: 1921469020}
   flapStrength: 10
   uiScript: {fileID: 0}
+  isJumping: 0
   birdIsAlive: 1
 --- !u!61 &1921469022
 BoxCollider2D:
